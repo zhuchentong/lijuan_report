@@ -1,0 +1,135 @@
+<div class="page page-content">
+    <div class="page-header">
+      <span class="header-left">陕西瑞海土地规划评估工程有限责任公司</span>
+    </div>
+
+    <div class="page-title-bar">
+      <span class="page-title-cn">重点解决</span>
+    </div>
+    <div class="title-underline"></div>
+
+    <p class="text-[11pt] leading-[1.75] text-text-dark indent-[2em] mb-[4mm]">
+      针对业主单位在建设用地审批中最关心的四类核心问题，瑞海提供清晰、可掌控的解决方案。
+    </p>
+
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="fc-head">
+          <span class="fc-icon"><svg viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg></span>
+          <span class="fc-title">看清全貌</span>
+        </div>
+        <p>建设用地审批全周期链条上有哪些阶段？从立项与选址、农用地转用与土地征收、土地供应与规划许可、不动产权属登记、工程建设与竣工，每一阶段要完成什么、办到什么程度才算通过？</p>
+      </div>
+      <div class="focus-card">
+        <div class="fc-head">
+          <span class="fc-icon"><svg viewBox="0 0 24 24">
+              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+            </svg></span>
+          <span class="fc-title">理清思路</span>
+        </div>
+        <p>各个阶段都有哪些事情要干？找谁办？阶段之间如何衔接、如何相互配合制约？</p>
+      </div>
+      <div class="focus-card">
+        <div class="fc-head">
+          <span class="fc-icon"><svg viewBox="0 0 24 24">
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+            </svg></span>
+          <span class="fc-title">执行有底</span>
+        </div>
+        <p>每个阶段业主单位需要做哪些事项、配合提供什么材料？技术成果需达到什么标准？各环节如何前后衔接、环环相扣？</p>
+      </div>
+      <div class="focus-card">
+        <div class="fc-head">
+          <span class="fc-icon"><svg viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg></span>
+          <span class="fc-title">心中有数</span>
+        </div>
+        <p>各环节会产生哪些费用、大概多少钱？每个阶段正常需要多长时间？哪些环节最容易卡住？</p>
+      </div>
+    </div>
+
+    <div class="bottom-fill">
+      <div class="quote-bar text-[10.5pt] text-left pt-[4mm] pr-[7mm] pb-[4mm] pl-[13mm] font-medium">
+        面对任何建设用地审批办理，都能清晰地知道：建设项目都要做什么、现在走到哪一步、下一步该做什么、找谁办、花多少钱、多久能干完——清晰掌控项目全流程审批节奏，项目推进，心中有谱。
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span class="footer-left">建设用地审批一站式服务</span>
+      <span class="footer-right">P6 / 24</span>
+    </div>
+  </div>
+
+<style>
+  /* P6 专属：正圆卡片 + focus-grid 用 flex:auto 撑满剩余空间
+     （Astro scoped 自动隔离，仅作用于本页，不影响 P7 等共用 .focus-* 的页面） */
+
+  /* 让网格区域纵向增长，吃满标题/正文与底部之间的剩余空间；
+     两行等分增高后的高度，圆形卡片在格子内居中 */
+  .focus-grid {
+    flex: 1 1 auto;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 3mm;
+  }
+
+  /* 正圆卡片：固定直径（≤ 列宽与行高的较小值），保证严格正圆不溢出；
+     去掉原左边框条，改为整圈细边 + 淡渐变底，适配圆形 */
+  .focus-card {
+    width: 82mm;
+    height: 82mm;
+    border-radius: 50%;
+    border-left: none;
+    border: 0.5pt solid var(--c-border);
+    background: linear-gradient(135deg, var(--c-bg-light), var(--c-bg-lighter));
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    padding: 6mm;
+    overflow: hidden;
+  }
+
+  /* 图标 + 标题改为纵向居中堆叠 */
+  .focus-card .fc-head {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5mm;
+    margin-bottom: 2mm;
+  }
+
+  .focus-card .fc-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .focus-card .fc-title {
+    text-align: center;
+  }
+
+  /* 正文完整保留，仅缩字号/居中以适应圆内 */
+  .focus-card p {
+    text-align: center;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+
+  /* 清零 auto margin，避免其先于 flex-grow 吸收剩余空间，
+     确保 .focus-grid 能真正撑满 */
+  .bottom-fill {
+    margin-top: 0;
+  }
+
+  .page-footer {
+    margin-top: 0;
+  }
+</style>
+

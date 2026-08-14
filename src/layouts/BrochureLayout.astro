@@ -1,0 +1,2026 @@
+---
+import { Font } from 'astro:assets';
+interface Props {
+	title?: string;
+}
+const { title = '建设用地全周期审批实务手册' } = Astro.props;
+---
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<Font cssVariable="--font-cn" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+
+    /* ========== 字体（阿里巴巴普惠体 3.0，由 Astro Fonts API <Font/> 注入） ========== */
+
+    /* ========== 全局重置与基础 ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --c-primary: #1B3A6B;
+      --c-secondary: #2E5C8A;
+      --c-accent: #4A90D9;
+      --c-white: #FFFFFF;
+      --c-bg-light: #F0F4F8;
+      --c-bg-lighter: #F7F9FC;
+      --c-text-dark: #333333;
+      --c-text-mid: #666666;
+      --c-text-light: #999999;
+      --c-gold: #C4A24E;
+      --c-gold-light: #F5EFDF;
+      --c-border: #D0D8E0;
+      --c-green: #2D8B5F;
+      --c-green-light: #E0F0E8;
+      --c-red: #C0392B;
+      --c-red-light: #FCEAEA;
+      --font-en: var(--font-cn);
+      --fs-header: 8pt;
+      --fs-footer: 7pt;
+    }
+
+    body {
+      font-family: var(--font-cn);
+      color: var(--c-text-dark);
+      background: #E8ECF0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== 页面容器 ========== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 10mm;
+      background: var(--c-white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-cover,
+    .page-back {
+      background: var(--c-primary);
+      color: var(--c-white);
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page-content {
+      padding: 18mm 16mm 16mm 16mm;
+      position: relative;
+    }
+
+    /* ========== 页眉 ========== */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1mm;
+      margin-bottom: 5mm;
+      border-bottom: 0.5pt solid var(--c-border);
+      position: relative;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 1mm;
+      width: 3mm;
+      height: 3mm;
+      background: var(--c-secondary);
+    }
+
+    .header-left {
+      font-size: var(--fs-header);
+      color: var(--c-text-mid);
+      padding-left: 5mm;
+    }
+
+    .header-right {
+      font-size: var(--fs-header);
+      color: var(--c-text-light);
+      font-family: var(--font-en);
+    }
+
+    /* ========== 页脚 ========== */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 3mm;
+      margin-top: auto;
+      border-top: 0.5pt solid var(--c-border);
+    }
+
+    .footer-left {
+      font-size: var(--fs-footer);
+      color: var(--c-text-light);
+      font-family: var(--font-cn);
+      letter-spacing: 0.5px;
+    }
+
+    .footer-right {
+      font-size: var(--fs-footer);
+      color: var(--c-text-light);
+      font-family: var(--font-en);
+      letter-spacing: 1px;
+    }
+
+    /* ========== 页面标题 ========== */
+    .page-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3mm;
+    }
+
+    .page-title-cn {
+      font-size: 22pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      letter-spacing: 1px;
+    }
+
+    .page-title-en {
+      font-size: 11pt;
+      font-weight: 400;
+      color: var(--c-text-mid);
+      font-family: var(--font-en);
+      text-align: right;
+    }
+
+    .title-underline {
+      height: 2pt;
+      background: var(--c-accent);
+      margin-bottom: 5mm;
+      border-radius: 1pt;
+    }
+
+    /* ========== 正文 ========== */
+    .body-text {
+      font-size: 11pt;
+      line-height: 1.65;
+      color: var(--c-text-dark);
+      text-align: justify;
+      margin-bottom: 3mm;
+    }
+
+    /* ========== 模块卡片 ========== */
+    .module-card {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 5mm 4mm 7mm;
+      margin-bottom: 4mm;
+      position: relative;
+    }
+
+    .module-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3mm;
+      background: var(--c-secondary);
+      border-radius: 2mm 0 0 2mm;
+    }
+
+    .module-card.highlight {
+      background: var(--c-gold-light);
+    }
+
+    .module-card.highlight::before {
+      background: var(--c-gold);
+    }
+
+    .module-card.accent::before {
+      background: var(--c-accent);
+    }
+
+    .module-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 2mm;
+    }
+
+    .module-content {
+      font-size: 10pt;
+      line-height: 1.6;
+      color: var(--c-text-dark);
+    }
+
+    /* ========== 信息卡片 ========== */
+    .info-cards {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 4mm;
+    }
+
+    .info-card {
+      flex: 1;
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 5mm;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-card .num {
+      font-size: 17pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      font-family: var(--font-en);
+    }
+
+    .info-card .label {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      margin-top: auto;
+    }
+
+    /* ========== 周期标注 ========== */
+    .cycle-badge {
+      display: inline-block;
+      background: var(--c-white);
+      color: var(--c-gold);
+      font-size: 10pt;
+      font-weight: 700;
+      padding: 2mm 8mm;
+      border-radius: 3mm;
+      margin: 2mm auto;
+      border: 1pt solid var(--c-gold);
+      letter-spacing: 0.5px;
+    }
+
+    .cycle-wrapper {
+      text-align: center;
+    }
+
+    /* ========== 流程条 ========== */
+    .process-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5mm;
+      margin-bottom: 3mm;
+    }
+
+    .process-step {
+      flex: 1;
+      text-align: center;
+      padding: 3mm 1mm;
+      border-radius: 2mm;
+      color: var(--c-white);
+    }
+
+    .process-step .step-page {
+      font-size: 9pt;
+      opacity: 0.8;
+      font-family: var(--font-en);
+    }
+
+    .process-step .step-name {
+      font-size: 10pt;
+      font-weight: 700;
+      margin-top: 1mm;
+    }
+
+    .process-step .step-cycle {
+      font-size: 8.5pt;
+      opacity: 0.9;
+      margin-top: 0.5mm;
+    }
+
+    .process-arrow {
+      color: var(--c-accent);
+      font-size: 13pt;
+      font-weight: 700;
+    }
+
+    .process-step:nth-child(1) {
+      background: var(--c-primary);
+    }
+
+    .process-step:nth-child(3) {
+      background: #244E7D;
+    }
+
+    .process-step:nth-child(5) {
+      background: var(--c-secondary);
+    }
+
+    .process-step:nth-child(7) {
+      background: #3A6FA0;
+    }
+
+    .process-step:nth-child(9) {
+      background: var(--c-accent);
+    }
+
+    /* ========== 双栏/三栏布局 ========== */
+    .two-col {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 4mm;
+    }
+
+    .two-col>.module-card {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .three-col {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 4mm;
+    }
+
+    .three-col>.module-card {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    /* ========== 列表 ========== */
+    ul.clean-list {
+      list-style: none;
+    }
+
+    ul.clean-list li {
+      font-size: 10pt;
+      line-height: 1.65;
+      padding-left: 4mm;
+      position: relative;
+      margin-bottom: 1.5mm;
+    }
+
+    ul.clean-list li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--c-accent);
+      font-weight: 700;
+    }
+
+    /* ========== 标签 ========== */
+    .tag {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 700;
+      padding: 0.5mm 2mm;
+      border-radius: 1mm;
+      margin-right: 1mm;
+    }
+
+    .tag-problem {
+      background: var(--c-red-light);
+      color: var(--c-red);
+    }
+
+    .tag-solution {
+      background: var(--c-green-light);
+      color: var(--c-green);
+    }
+
+    .tag-basis {
+      background: #D0D8E8;
+      color: var(--c-primary);
+    }
+
+    .tag-gold {
+      background: var(--c-gold-light);
+      color: var(--c-gold);
+      border: 0.5pt solid var(--c-gold);
+    }
+
+    /* ========== 图片占位符 ========== */
+    .photo-placeholder {
+      background: linear-gradient(135deg, var(--c-bg-light) 25%, var(--c-bg-lighter) 25%, var(--c-bg-lighter) 50%, var(--c-bg-light) 50%, var(--c-bg-light) 75%, var(--c-bg-lighter) 75%);
+      background-size: 4mm 4mm;
+      border: 1pt dashed var(--c-accent);
+      border-radius: 2mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-text-light);
+      text-align: center;
+    }
+
+    .photo-placeholder .ph-icon {
+      font-size: 22pt;
+      margin-bottom: 2mm;
+      opacity: 0.5;
+    }
+
+    .photo-placeholder .ph-text {
+      font-size: 9pt;
+      line-height: 1.4;
+      padding: 0 3mm;
+    }
+
+    /* ========== 页面图片样式 ========== */
+    .page-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2mm;
+      display: block;
+    }
+
+    .cover-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(27, 58, 107, 0.25) 0%, rgba(27, 58, 107, 0.45) 60%, rgba(27, 58, 107, 0.85) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .p5-aerial-img {
+      width: 100%;
+      height: 45mm;
+      object-fit: cover;
+      border-radius: 2mm;
+      margin-bottom: 3mm;
+      display: block;
+    }
+
+    /* ========== 时间线 (P5) ========== */
+    .timeline {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 3mm;
+      position: relative;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 14mm;
+      left: 5%;
+      right: 5%;
+      height: 3pt;
+      background: linear-gradient(90deg, var(--c-primary), var(--c-secondary), var(--c-accent), var(--c-secondary), var(--c-primary));
+      border-radius: 2pt;
+      z-index: 0;
+    }
+
+    .timeline-node {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 0 2mm;
+    }
+
+    .timeline-icon {
+      width: 14mm;
+      height: 14mm;
+      margin: 0 auto 2mm;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-white);
+      font-size: 17pt;
+      font-weight: 700;
+      border: 2pt solid var(--c-white);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .timeline-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 1mm;
+    }
+
+    .timeline-task {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      line-height: 1.35;
+      margin-bottom: 1mm;
+    }
+
+    .timeline-cycle {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--c-accent);
+      font-family: var(--font-en);
+    }
+
+    /* ========== 流程箭头 ========== */
+    .flow-arrows {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1mm;
+      margin: 3mm 0;
+    }
+
+    .flow-step {
+      background: var(--c-bg-light);
+      border: 0.5pt solid var(--c-accent);
+      border-radius: 2mm;
+      padding: 2mm 3mm;
+      text-align: center;
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--c-primary);
+      min-width: 20mm;
+    }
+
+    .flow-step.gold {
+      background: var(--c-gold-light);
+      border-color: var(--c-gold);
+      color: var(--c-gold);
+    }
+
+    .flow-arrow-icon {
+      color: var(--c-accent);
+      font-size: 12pt;
+      font-weight: 700;
+    }
+
+    /* ========== 图标网格 (P11) ========== */
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .dept-card {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 3mm 2mm;
+      text-align: center;
+      position: relative;
+      border-top: 2pt solid var(--c-secondary);
+    }
+
+    .dept-card:nth-child(odd) {
+      border-top-color: var(--c-primary);
+    }
+
+    .dept-icon {
+      width: 10mm;
+      height: 10mm;
+      margin: 0 auto 1.5mm;
+      border-radius: 50%;
+      background: var(--c-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5pt solid var(--c-accent);
+    }
+
+    .dept-icon svg {
+      width: 6mm;
+      height: 6mm;
+    }
+
+    .dept-name {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 1mm;
+    }
+
+    .dept-desc {
+      font-size: 8.5pt;
+      color: var(--c-text-mid);
+      line-height: 1.35;
+    }
+
+    /* ========== 项目类型卡片网格 (P15) ========== */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .proj-grid-row2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .proj-card {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 3mm 2mm;
+      text-align: center;
+      position: relative;
+      border-left: 2.5pt solid var(--c-secondary);
+    }
+
+    .proj-card.gold {
+      border-left-color: var(--c-gold);
+    }
+
+    .proj-icon-circle {
+      width: 12mm;
+      height: 12mm;
+      margin: 0 auto 2mm;
+      border-radius: 50%;
+      background: var(--c-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5pt solid var(--c-accent);
+    }
+
+    .proj-icon-circle svg {
+      width: 7mm;
+      height: 7mm;
+    }
+
+    .proj-name {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 1mm;
+    }
+
+    .proj-sub {
+      font-size: 8pt;
+      color: var(--c-text-light);
+      margin-bottom: 1.5mm;
+    }
+
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1mm;
+      justify-content: center;
+    }
+
+    .proj-tag {
+      font-size: 8pt;
+      padding: 0.5mm 1.5mm;
+      border-radius: 1mm;
+      background: var(--c-white);
+      color: var(--c-text-mid);
+    }
+
+    .proj-tag.policy {
+      background: var(--c-gold-light);
+      color: var(--c-gold);
+      font-weight: 600;
+    }
+
+    /* ========== 三区三线概念图 ========== */
+    .concept-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+      padding: 2mm;
+    }
+
+    .concept-row {
+      display: flex;
+      gap: 1.5mm;
+    }
+
+    .concept-block {
+      flex: 1;
+      border-radius: 1.5mm;
+      padding: 2mm;
+      text-align: center;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--c-white);
+      line-height: 1.35;
+    }
+
+    .concept-block.town {
+      background: var(--c-secondary);
+      border: 1.5pt solid var(--c-primary);
+    }
+
+    .concept-block.agri {
+      background: var(--c-green);
+      border: 1.5pt solid #1B5E20;
+    }
+
+    .concept-block.eco {
+      background: #D4A017;
+      border: 1.5pt solid #8B6914;
+    }
+
+    .concept-label {
+      font-size: 8pt;
+      color: var(--c-text-mid);
+      text-align: center;
+      margin-top: 0.5mm;
+    }
+
+    /* ========== 陕西省地图 SVG ========== */
+    .region-map {
+      width: 100%;
+      height: 38mm;
+      margin-bottom: 3mm;
+    }
+
+    /* ========== 装饰带 ========== */
+    .decor-band {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60mm;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ========== 封面/封底 ========== */
+    .cover-content {
+      text-align: center;
+      padding: 40mm 20mm;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-logo-area {
+      width: 36mm;
+      height: 36mm;
+      border: 2pt solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      margin: 0 auto 12mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(74, 144, 217, 0.1);
+    }
+
+    .cover-logo-text {
+      font-size: 24pt;
+      font-weight: 900;
+      color: var(--c-accent);
+      font-family: var(--font-en);
+    }
+
+    .cover-logo-area:has(.cover-logo-img) {
+      border: none;
+      background: transparent;
+    }
+
+    .cover-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cover-divider {
+      width: 60mm;
+      height: 1pt;
+      background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+      margin: 8mm auto;
+    }
+
+    .cover-name-cn {
+      font-size: 26pt;
+      font-weight: 700;
+      color: var(--c-white);
+      letter-spacing: 2px;
+      line-height: 1.35;
+    }
+
+    .cover-name-en {
+      font-size: 11pt;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.8);
+      font-family: var(--font-en);
+      margin-top: 3mm;
+      line-height: 1.4;
+    }
+
+    .cover-slogan-en {
+      font-size: 12pt;
+      color: var(--c-accent);
+      font-family: var(--font-en);
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    .cover-slogan-cn {
+      font-size: 14pt;
+      color: var(--c-white);
+      letter-spacing: 4px;
+      margin-top: 2mm;
+    }
+
+    .cover-date {
+      font-size: 11pt;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 20mm;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 封底 */
+    .back-content {
+      text-align: center;
+      padding: 45mm 20mm;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-name-cn {
+      font-size: 18pt;
+      font-weight: 700;
+      color: var(--c-white);
+      letter-spacing: 1px;
+    }
+
+    .back-name-en {
+      font-size: 10pt;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: var(--font-en);
+      margin-top: 2mm;
+      line-height: 1.4;
+    }
+
+    .back-contact {
+      margin-top: 10mm;
+    }
+
+    .back-contact-item {
+      font-size: 11pt;
+      color: var(--c-white);
+      margin-bottom: 3mm;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2mm;
+    }
+
+    .back-contact-item .ci-icon {
+      display: inline-flex;
+      width: 5mm;
+      height: 5mm;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+    }
+
+    .back-contact-item .ci-icon svg {
+      width: 4mm;
+      height: 4mm;
+    }
+
+    /* ========== 目录 ========== */
+    .toc-section {
+      margin-bottom: 4mm;
+    }
+
+    .toc-section-title {
+      display: inline-block;
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--c-white);
+      padding: 1.5mm 4mm;
+      border-radius: 1mm 1mm 0 0;
+      margin-bottom: 2mm;
+    }
+
+    .toc-section-title.s1 {
+      background: var(--c-primary);
+    }
+
+    .toc-section-title.s2 {
+      background: var(--c-secondary);
+    }
+
+    .toc-section-title.s3 {
+      background: var(--c-accent);
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      font-size: 10pt;
+      padding: 1.5mm 0;
+      border-bottom: 0.5pt dotted var(--c-border);
+    }
+
+    .toc-item .toc-page {
+      font-family: var(--font-en);
+      color: var(--c-accent);
+      font-weight: 600;
+      width: 10mm;
+    }
+
+    .toc-item .toc-title {
+      color: var(--c-text-dark);
+    }
+
+    .toc-columns {
+      display: flex;
+      gap: 8mm;
+    }
+
+    .toc-column {
+      flex: 1;
+    }
+
+    .toc-decor {
+      margin-top: auto;
+      padding-top: 6mm;
+      text-align: center;
+    }
+
+    .toc-decor svg {
+      width: 60mm;
+      height: 35mm;
+      opacity: 0.6;
+    }
+
+    /* ========== 架构图 ========== */
+    .org-chart {
+      text-align: center;
+      margin-bottom: 3mm;
+    }
+
+    .org-node {
+      display: inline-block;
+      padding: 2.5mm 6mm;
+      border-radius: 2mm;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--c-white);
+    }
+
+    .org-node.top {
+      background: var(--c-primary);
+    }
+
+    .org-node.mid {
+      background: var(--c-secondary);
+    }
+
+    .org-connector {
+      width: 0.5pt;
+      height: 4mm;
+      background: var(--c-text-light);
+      margin: 0 auto;
+    }
+
+    .org-branches {
+      display: flex;
+      gap: 6mm;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .org-branch {
+      flex: 1;
+    }
+
+    .org-branch-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--c-white);
+      padding: 2mm 4mm;
+      border-radius: 1mm;
+      text-align: center;
+      margin-bottom: 2mm;
+    }
+
+    .org-branch-title.business {
+      background: var(--c-secondary);
+    }
+
+    .org-branch-title.support {
+      background: var(--c-accent);
+    }
+
+    .org-branch-items {
+      font-size: 9pt;
+      line-height: 1.6;
+      color: var(--c-text-mid);
+      text-align: center;
+    }
+
+    .org-branch-items .dept {
+      font-weight: 600;
+      color: var(--c-primary);
+    }
+
+    /* ========== 多评合一标签 ========== */
+    .eval-tags {
+      display: flex;
+      gap: 2mm;
+      margin: 2mm 0;
+    }
+
+    .eval-tag {
+      flex: 1;
+      background: var(--c-secondary);
+      color: var(--c-white);
+      text-align: center;
+      padding: 1.5mm 1mm;
+      border-radius: 1mm;
+      font-size: 9pt;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1mm;
+    }
+
+    .eval-tag .et-icon {
+      font-size: 10pt;
+    }
+
+    /* ========== 管家式统筹放射图 ========== */
+    .radial-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+      margin: 2mm 0;
+    }
+
+    .radial-center {
+      width: 18mm;
+      height: 18mm;
+      border-radius: 50%;
+      background: var(--c-gold);
+      color: var(--c-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9pt;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+      flex-shrink: 0;
+      box-shadow: 0 1px 6px rgba(196, 162, 78, 0.3);
+    }
+
+    .radial-nodes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2mm;
+      flex: 1;
+    }
+
+    .radial-node {
+      background: var(--c-bg-light);
+      border: 1pt solid var(--c-accent);
+      border-radius: 2mm;
+      padding: 2mm;
+      text-align: center;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--c-primary);
+    }
+
+    .radial-node .rn-icon {
+      font-size: 11pt;
+      display: block;
+      margin-bottom: 1mm;
+    }
+
+    /* ========== 区域卡片 ========== */
+    .region-card {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 3mm;
+      flex: 1;
+      border-top: 3pt solid;
+    }
+
+    .region-card.guanzhong {
+      border-top-color: var(--c-accent);
+    }
+
+    .region-card.shaibei {
+      border-top-color: var(--c-gold);
+    }
+
+    .region-card.shainan {
+      border-top-color: var(--c-green);
+    }
+
+    .region-name {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 2mm;
+      text-align: center;
+    }
+
+    .region-features {
+      font-size: 9pt;
+      line-height: 1.4;
+      color: var(--c-text-mid);
+      margin-bottom: 2mm;
+    }
+
+    .region-features li {
+      list-style: none;
+      padding-left: 3mm;
+      position: relative;
+      margin-bottom: 1mm;
+    }
+
+    .region-features li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--c-accent);
+    }
+
+    .region-strategy {
+      font-size: 9pt;
+      color: var(--c-text-dark);
+      background: var(--c-white);
+      padding: 2mm;
+      border-radius: 1mm;
+      line-height: 1.4;
+    }
+
+    /* ========== 难点破解流程 ========== */
+    .solution-flow {
+      display: flex;
+      align-items: center;
+      gap: 1mm;
+      margin-top: 1.5mm;
+      flex-wrap: wrap;
+    }
+
+    .solution-flow .sf-step {
+      font-size: 8.5pt;
+      padding: 1mm 2mm;
+      background: var(--c-green-light);
+      color: var(--c-green);
+      border-radius: 1mm;
+      font-weight: 600;
+    }
+
+    .solution-flow .sf-arrow {
+      color: var(--c-green);
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    /* ========== 打印 ========== */
+    @media print {
+      body {
+        background: none;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+    }
+
+    @media screen and (max-width: 820px) {
+      .page {
+        width: 100%;
+        min-height: auto;
+        padding: 15mm 8mm;
+      }
+
+      .page-content {
+        padding: 15mm 8mm;
+      }
+    }
+
+    /* ========== 修复-02：底部填充组件 ========== */
+    .bottom-fill {
+      margin-top: auto;
+      padding-top: 4mm;
+    }
+
+    /* 服务亮点卡片 */
+    .highlight-strip {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .highlight-item {
+      flex: 1;
+      background: linear-gradient(135deg, var(--c-bg-light), var(--c-bg-lighter));
+      border-radius: 2mm;
+      padding: 4mm 3mm;
+      text-align: center;
+      border-top: 2pt solid var(--c-accent);
+    }
+
+    .highlight-item .hi-icon {
+      font-size: 17pt;
+      margin-bottom: 2mm;
+    }
+
+    .highlight-item .hi-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 1mm;
+    }
+
+    .highlight-item .hi-desc {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      line-height: 1.35;
+    }
+
+    /* 2×2 底部卡片网格：占满剩余竖向空间 */
+    .highlight-strip.grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3mm;
+      flex: 1;
+    }
+
+    .highlight-strip.grid-2x2 .highlight-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .highlight-strip.grid-2x2 .highlight-item .hi-icon {
+      font-size: 26pt;
+      margin-bottom: 3mm;
+    }
+
+    .highlight-strip.grid-2x2 .highlight-item .hi-icon svg {
+      width: 11mm;
+      height: 11mm;
+    }
+
+    .highlight-strip.grid-2x2 .highlight-item .hi-title {
+      font-size: 14pt;
+      margin-bottom: 2mm;
+    }
+
+    .highlight-strip.grid-2x2 .highlight-item .hi-desc {
+      font-size: 11pt;
+      line-height: 1.5;
+    }
+
+    /* SVG 图标统一尺寸（替换 emoji） */
+    .hi-icon svg {
+      width: 8mm;
+      height: 8mm;
+      stroke: var(--c-secondary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .rn-icon svg {
+      width: 5mm;
+      height: 5mm;
+      stroke: var(--c-secondary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: inline-block;
+    }
+
+    .timeline-icon svg {
+      width: 7mm;
+      height: 7mm;
+      stroke: var(--c-white);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* 数据统计条 */
+    .stat-bar {
+      display: flex;
+      background: var(--c-bg-light);
+      border-top: 2pt solid var(--c-primary);
+      border-radius: 0 0 2mm 2mm;
+      padding: 4mm 3mm;
+      gap: 2mm;
+      margin-bottom: 3mm;
+    }
+
+    .stat-bar .stat-item {
+      flex: 1;
+      text-align: center;
+      color: var(--c-text-dark);
+      border-right: 0.5pt solid var(--c-border);
+      padding: 0 2mm;
+    }
+
+    .stat-bar .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-bar .stat-num {
+      font-size: 19pt;
+      font-weight: 700;
+      font-family: var(--font-en);
+      color: var(--c-primary);
+    }
+
+    .stat-bar .stat-label {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      margin-top: 1mm;
+    }
+
+    /* 引言/理念条 */
+    .quote-bar {
+      background: var(--c-gold-light);
+      border-left: 4mm solid var(--c-gold);
+      border-radius: 0 2mm 2mm 0;
+      padding: 4mm 7mm 4mm 8mm;
+      text-align: left;
+      color: var(--c-text-dark);
+      font-size: 11pt;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 3mm;
+      position: relative;
+    }
+
+    .quote-bar::before {
+      content: '\201C';
+      font-size: 26pt;
+      position: absolute;
+      left: 4mm;
+      top: 0;
+      color: var(--c-gold);
+      opacity: 0.5;
+    }
+
+    /* ========== 焦点/优势卡片网格（P6/P7 复用） ========== */
+    .focus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin-bottom: 3mm;
+    }
+
+    .focus-card {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 4mm 4mm 6mm;
+      border-left: 3mm solid var(--c-accent);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .focus-card .fc-head {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      margin-bottom: 2mm;
+    }
+
+    .focus-card .fc-icon svg {
+      width: 7mm;
+      height: 7mm;
+      stroke: var(--c-secondary);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .focus-card .fc-title {
+      font-size: 14pt;
+      font-weight: 700;
+      color: var(--c-primary);
+    }
+
+    .focus-card p {
+      font-size: 10pt;
+      line-height: 1.65;
+      color: var(--c-text-dark);
+      text-align: justify;
+    }
+
+    /* 页面背景装饰 */
+    .page-content::after {
+      content: '瑞';
+      position: absolute;
+      bottom: 25mm;
+      right: 8mm;
+      font-size: 140pt;
+      font-weight: 900;
+      color: var(--c-primary);
+      opacity: 0.018;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-content>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-content::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 1.5mm;
+      background: linear-gradient(180deg, var(--c-primary) 0%, var(--c-accent) 50%, transparent 100%);
+      z-index: 0;
+    }
+
+    /* 信息条组件 */
+    .info-strip {
+      display: flex;
+      gap: 2mm;
+      margin-bottom: 4mm;
+      flex-wrap: wrap;
+    }
+
+    .info-strip-item {
+      flex: 1;
+      min-width: 40mm;
+      background: var(--c-bg-lighter);
+      border-left: 2pt solid var(--c-accent);
+      border-radius: 0 2mm 2mm 0;
+      padding: 3mm 4mm;
+    }
+
+    .info-strip-item .isi-label {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      margin-bottom: 1mm;
+    }
+
+    .info-strip-item .isi-value {
+      font-size: 9.5pt;
+      color: var(--c-primary);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* ========== P1 方案：章节扉页 ========== */
+    .page-divider {
+      background: var(--c-primary);
+      color: var(--c-white);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-divider .divider-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .page-divider::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(27, 58, 107, 0.6) 0%, rgba(27, 58, 107, 0.3) 50%, rgba(27, 58, 107, 0.7) 100%);
+      z-index: 1;
+    }
+
+    .divider-content {
+      position: relative;
+      z-index: 2;
+      padding: 35mm 22mm 25mm 22mm;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .divider-num {
+      font-family: var(--font-en);
+      font-size: 76pt;
+      font-weight: 900;
+      color: var(--c-accent);
+      line-height: 1;
+      letter-spacing: -2px;
+      opacity: 0.85;
+    }
+
+    .divider-num .divider-num-sub {
+      font-size: 15pt;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      margin-left: 4mm;
+      letter-spacing: 2px;
+      vertical-align: middle;
+    }
+
+    .divider-rule {
+      width: 30mm;
+      height: 2pt;
+      background: var(--c-gold);
+      margin: 8mm 0 6mm 0;
+    }
+
+    .divider-title-cn {
+      font-size: 32pt;
+      font-weight: 700;
+      color: var(--c-white);
+      letter-spacing: 2px;
+      line-height: 1.3;
+    }
+
+    .divider-title-en {
+      font-size: 12pt;
+      font-weight: 400;
+      color: var(--c-accent);
+      font-family: var(--font-en);
+      letter-spacing: 2px;
+      margin-top: 4mm;
+      line-height: 1.4;
+    }
+
+    .divider-intro {
+      font-size: 11pt;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 10mm;
+      max-width: 140mm;
+      text-align: justify;
+    }
+
+    .divider-nav {
+      margin-top: auto;
+      padding-top: 12mm;
+      border-top: 0.5pt solid rgba(255, 255, 255, 0.2);
+    }
+
+    .divider-nav-label {
+      font-size: 9pt;
+      color: var(--c-accent);
+      font-family: var(--font-en);
+      letter-spacing: 2px;
+      margin-bottom: 4mm;
+      font-weight: 600;
+    }
+
+    .divider-nav-grid {
+      display: flex;
+      gap: 2mm;
+      align-items: stretch;
+    }
+
+    .divider-nav-item {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 0.5pt solid rgba(255, 255, 255, 0.15);
+      border-radius: 1.5mm;
+      padding: 3mm 2mm;
+      text-align: center;
+      position: relative;
+    }
+
+    .divider-nav-item .nav-page {
+      font-size: 8.5pt;
+      font-family: var(--font-en);
+      color: var(--c-accent);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .divider-nav-item .nav-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-top: 1.5mm;
+      line-height: 1.3;
+    }
+
+    .divider-nav-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--c-accent);
+      font-size: 11pt;
+      opacity: 0.7;
+    }
+
+    .divider-slogan {
+      margin-top: 8mm;
+      font-size: 10pt;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 2px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ========== P1 方案：Hero 容器 ========== */
+    .hero-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2mm;
+      flex-shrink: 0;
+    }
+
+    .hero-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(27, 58, 107, 0.45) 100%);
+      pointer-events: none;
+    }
+
+    .hero-frame.tri-overlay::after {
+      background: linear-gradient(90deg,
+          rgba(196, 162, 78, 0.30) 0%,
+          rgba(196, 162, 78, 0.15) 33%,
+          rgba(74, 144, 217, 0.15) 33%,
+          rgba(74, 144, 217, 0.30) 66%,
+          rgba(45, 139, 95, 0.15) 66%,
+          rgba(45, 139, 95, 0.30) 100%);
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 2mm;
+      left: 3mm;
+      right: 3mm;
+      color: var(--c-white);
+      font-size: 9pt;
+      font-weight: 600;
+      z-index: 2;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ========== P1 方案：环形进度图 ========== */
+    .donut-card {
+      flex: 1;
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 3mm;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .donut-svg {
+      width: 22mm;
+      height: 22mm;
+      margin-bottom: 1.5mm;
+    }
+
+    .donut-svg .donut-bg {
+      stroke: var(--c-border);
+      fill: none;
+      stroke-width: 4;
+    }
+
+    .donut-svg .donut-fg {
+      stroke: var(--c-accent);
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .donut-svg .donut-num {
+      font-family: var(--font-en);
+      font-size: 10pt;
+      font-weight: 700;
+      fill: var(--c-primary);
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .donut-label {
+      font-size: 9pt;
+      color: var(--c-text-mid);
+      margin-top: auto;
+    }
+
+    /* ========== P1 方案：甘特比例图 ========== */
+    .gantt-chart {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+    }
+
+    .gantt-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2.5mm;
+      gap: 3mm;
+    }
+
+    .gantt-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .gantt-label {
+      width: 22mm;
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      flex-shrink: 0;
+    }
+
+    .gantt-track {
+      flex: 1;
+      height: 5mm;
+      background: var(--c-white);
+      border-radius: 1mm;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gantt-bar {
+      height: 100%;
+      border-radius: 1mm;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 2mm;
+      color: var(--c-white);
+      font-size: 8.5pt;
+      font-weight: 700;
+      font-family: var(--font-en);
+    }
+
+    .gantt-bar.b1 {
+      background: var(--c-primary);
+    }
+
+    .gantt-bar.b2 {
+      background: #244E7D;
+    }
+
+    .gantt-bar.b3 {
+      background: var(--c-secondary);
+    }
+
+    .gantt-bar.b4 {
+      background: #3A6FA0;
+    }
+
+    .gantt-bar.b5 {
+      background: var(--c-accent);
+    }
+
+    /* ========== P1 方案：对比柱图 ========== */
+    .compare-chart {
+      background: var(--c-bg-light);
+      border-radius: 2mm;
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+    }
+
+    .compare-row {
+      margin-bottom: 3mm;
+    }
+
+    .compare-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .compare-label {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--c-primary);
+      margin-bottom: 1.5mm;
+    }
+
+    .compare-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+    }
+
+    .compare-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .compare-tag {
+      width: 14mm;
+      font-size: 8.5pt;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .compare-tag.trad {
+      color: var(--c-text-mid);
+    }
+
+    .compare-tag.rui {
+      color: var(--c-primary);
+    }
+
+    .compare-bar-track {
+      flex: 1;
+      height: 4mm;
+      background: var(--c-white);
+      border-radius: 1mm;
+      overflow: hidden;
+    }
+
+    .compare-bar {
+      height: 100%;
+      border-radius: 1mm;
+      display: flex;
+      align-items: center;
+      padding-left: 2mm;
+      color: var(--c-white);
+      font-size: 8.5pt;
+      font-weight: 700;
+      font-family: var(--font-en);
+    }
+
+    .compare-bar.trad {
+      background: var(--c-text-light);
+    }
+
+    .compare-bar.rui {
+      background: var(--c-accent);
+    }
+
+    /* ========== 修复-03：紧凑型 bottom-fill（用于内容密度高的页面） ========== */
+    .bottom-fill.compact {
+      padding-top: 2mm;
+    }
+
+    .bottom-fill.compact .highlight-item {
+      padding: 2.5mm 2mm;
+    }
+
+    .bottom-fill.compact .highlight-item .hi-icon {
+      margin-bottom: 1mm;
+    }
+
+    .bottom-fill.compact .highlight-item .hi-icon svg {
+      width: 6mm;
+      height: 6mm;
+    }
+
+    .bottom-fill.compact .highlight-item .hi-title {
+      font-size: 9pt;
+      margin-bottom: 0.5mm;
+    }
+
+    .bottom-fill.compact .highlight-item .hi-desc {
+      font-size: 8.5pt;
+      line-height: 1.3;
+    }
+
+    .bottom-fill.compact .highlight-strip {
+      margin-bottom: 2mm;
+    }
+
+    .bottom-fill.compact .quote-bar {
+      padding: 3mm 6mm 3mm 9mm;
+      font-size: 10pt;
+      margin-bottom: 0;
+    }
+
+    .bottom-fill.compact .quote-bar::before {
+      font-size: 19pt;
+    }
+
+    /* ========== 成果展示 · 卷宗缩略图网格 (P23) ========== */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3mm 2.5mm;
+      margin: 2mm 0 2mm;
+    }
+
+    .doc-thumb {
+      background: var(--c-white);
+      border: 0.5pt solid var(--c-border);
+      border-radius: 1.5mm;
+      padding: 1.5mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .doc-thumb-frame {
+      width: 100%;
+      aspect-ratio: 210 / 297;
+      overflow: hidden;
+      border-radius: 1mm;
+      background: var(--c-bg-light);
+      box-shadow: 0 0.5mm 1.5mm rgba(27, 58, 107, 0.12);
+    }
+
+    .doc-thumb-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .doc-thumb-name {
+      margin-top: 1.5mm;
+      font-size: 7.5pt;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--c-primary);
+      text-align: center;
+      min-height: 8mm;
+    }
+
+    .doc-stat-tile {
+      border-radius: 1.5mm;
+      padding: 2mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--c-white);
+      background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+    }
+
+    .doc-stat-num {
+      font-size: 24pt;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .doc-stat-num small {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+
+    .doc-stat-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      margin-top: 1.5mm;
+      line-height: 1.3;
+      opacity: 0.94;
+    }
+  
+</style>
