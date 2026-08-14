@@ -167,4 +167,60 @@
     </div>
   </div>
 
+<style>
+  /* P22 专属：3 张成果卡 → 正圆，并铺满模块卡到页脚之间的剩余空间
+     （Astro scoped 自动隔离，仅作用于本页，不影响其他复用 .highlight-* 的页面） */
+
+  /* bottom-fill 吃满剩余竖向空间，作为纵向 flex 容器；清零自身 auto margin */
+  .bottom-fill.compact {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  /* 卡片区在 bottom-fill 内再吃满；纵向居中圆卡，横向铺满 */
+  .bottom-fill.compact .highlight-strip {
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 正圆卡片：3 列单行，直径受列宽限制取 56mm；
+     去 border-top 改整圈细边，flex 列居中 */
+  .bottom-fill.compact .highlight-item {
+    flex: 0 0 auto;
+    width: 56mm;
+    height: 56mm;
+    border-radius: 50%;
+    border-top: none;
+    border: 0.5pt solid var(--c-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4mm;
+    overflow: hidden;
+  }
+
+  .bottom-fill.compact .highlight-item .hi-icon {
+    margin-bottom: 2mm;
+  }
+
+  .bottom-fill.compact .highlight-item .hi-icon svg {
+    width: 10mm;
+    height: 10mm;
+  }
+
+  .bottom-fill.compact .highlight-item .hi-title {
+    margin-bottom: 1mm;
+  }
+
+  /* 清零 footer 的 auto margin，避免其先于 flex-grow 吸收空白，
+     确保 .bottom-fill.compact 能真正撑满 */
+  .page-footer {
+    margin-top: 0;
+  }
+</style>
+
   <!-- ==================== P23 成果展示 · 全套获批卷宗 ==================== -->

@@ -16,7 +16,9 @@ const { title = '建设用地全周期审批实务手册' } = Astro.props;
 		<Font cssVariable="--font-cn" />
 	</head>
 	<body>
-		<slot />
+		<div id="app">
+			<slot />
+		</div>
 	</body>
 </html>
 
