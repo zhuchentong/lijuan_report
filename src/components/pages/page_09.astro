@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="hl-wrap">
       <div class="highlight-strip grid-cols-2 grid">
         <div class="highlight-item">
           <div class="hi-icon"><svg viewBox="0 0 24 24">
@@ -113,4 +113,60 @@
       <span class="footer-right">P9 / 24</span>
     </div>
   </div>
+
+<style>
+  /* P9 专属：4 张服务亮点卡 → 正圆，并铺满两栏模块卡到页脚之间的剩余空间
+     （Astro scoped 自动隔离，仅作用于本页，不影响其他复用 .highlight-* 的页面） */
+
+  /* 包裹层吃满剩余竖向空间，作为纵向 flex 容器 */
+  .hl-wrap {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 卡片区在包裹层内再吃满，两行等分增高后的高度 */
+  .hl-wrap .highlight-strip {
+    flex: 1 1 auto;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  /* 正圆卡片：本页上方内容很满，纵向余量有限，
+     固定直径（≤ 行高）保证严格正圆且不把页面顶高超出 A4；
+     去 border-top 改整圈细边，flex 列居中 */
+  .highlight-item {
+    width: 52mm;
+    height: 52mm;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    border-top: none;
+    border: 0.5pt solid var(--c-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4mm;
+    overflow: hidden;
+  }
+
+  .highlight-item .hi-icon {
+    margin-bottom: 2mm;
+  }
+
+  .highlight-item .hi-icon svg {
+    width: 10mm;
+    height: 10mm;
+  }
+
+  .highlight-item .hi-title {
+    margin-bottom: 1mm;
+  }
+
+  /* 清零 footer 的 auto margin，避免其先于 flex-grow 吸收空白，
+     确保 .hl-wrap 能真正撑满 */
+  .page-footer {
+    margin-top: 0;
+  }
+</style>
 
