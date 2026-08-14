@@ -1522,6 +1522,17 @@ const { title = '建设用地全周期审批实务手册' } = Astro.props;
       padding: 0;
       position: relative;
       overflow: hidden;
+    } 
+
+    .page-divider::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 1.5mm;
+      background: linear-gradient(180deg, var(--c-primary) 0%, var(--c-accent) 50%, transparent 100%);
+      z-index: 0;
     }
 
     .page-divider .divider-bg {
